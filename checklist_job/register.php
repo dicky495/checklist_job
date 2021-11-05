@@ -84,7 +84,24 @@ if (isset($_POST["register"])) {
                             </select>
                         </div>
                         <div class="mb-1 form-group row">
-                            <input type="text" class="form-control" id="sub_bagian" name="sub_bagian" placeholder="Masukkan Sub Bagian" required>
+                            <select class="form-select" name="sub_bagian" id="sub_bagian" required>
+                                <option value="">Sub Bagian</option>
+                                <option value="Langganan">Langganan</option>
+                                <option value="Langganan">Penagihan</option>
+                                <option value="Umum">Umum</option>
+                                <option value="Umum">Administrasi</option>
+                                <option value="Umum">Personalia</option>
+                                <option value="Keuangan">Kas</option>
+                                <option value="Keuangan">Pembukuan</option>
+                                <option value="Keuangan">Rekening</option>
+                                <option value="Pemeliharaan">Pemeliharaan</option>
+                                <option value="Pemeliharaan">Peralatan</option>
+                                <option value="Perencanaan">Perencanaan</option>
+                                <option value="Perencanaan">Pengawasan</option>
+                                <option value="SPI">SPI</option>
+                                <option value="IT">IT</option>
+                                <option value="AMDK">AMDK</option>
+                            </select>
                         </div>
                         <div class="mb-1 form-group row">
                             <!-- <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Jabatan" required> -->

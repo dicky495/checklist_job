@@ -12,12 +12,13 @@ $table = substr($_SESSION['username'], 0, 5);
 if (isset($_POST["add_post"])) {
     $tahun = $_POST['tahun'];
     $bulan = $_POST['bulan'];
-    var_dump($tahun);
     $name_task = mysqli_real_escape_string($con, $_POST['name_task']);
+
     $query = mysqli_query($con, "INSERT INTO $table (name_task, status_task, tahun, bulan , date_task)  VALUES ('$name_task', 'Pending', '$tahun', '$bulan' , now())");
     header("Location: index.php");
 }
 if (isset($_GET['edit'])) {
+
     $id_task = $_GET['edit'];
     $query = mysqli_query($con, "UPDATE $table SET status_task = 'Selesai' Where id_task = '$id_task'");
     header("Location: index.php");
@@ -44,7 +45,7 @@ if (isset($_GET['delete'])) {
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
-    <title>Todo List Dicky</title>
+    <title>Halaman Utama</title>
 </head>
 
 <body>
