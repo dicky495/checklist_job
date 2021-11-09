@@ -13,7 +13,7 @@ if (isset($_POST["register"])) {
 }
 
 if (isset($_POST["register"])) {
-    $table = substr($_POST["username"], 0, 5);
+    $table = trim(substr($_POST["username"], 0, 6));
     $query  = "CREATE TABLE $table (id_task INT(10) AUTO_INCREMENT, ";
     $query .= "name_task VARCHAR(50),";
     $query .= "status_task VARCHAR(50), ";
