@@ -1,5 +1,5 @@
 body {
-    background-color: #ffc107;
+    background-color: #cfe1fa;
 }
 
 .col-sm {
@@ -31,4 +31,7 @@ body {
         width: 80%;
         padding: 20px;
     }
+}
+.tes {
+    border: 1px solid red;
 }
