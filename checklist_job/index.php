@@ -9,14 +9,14 @@ if (!isset($_SESSION["login"])) {
 require "function.php";
 
 $table = trim(substr($_SESSION['username'], 0, 6));
-if (isset($_POST["add_post"])) {
-    $tahun = $_POST['tahun'];
-    $bulan = $_POST['bulan'];
-    $name_task = mysqli_real_escape_string($con, $_POST['name_task']);
+// if (isset($_POST["add_post"])) {
+//     $tahun = $_POST['tahun'];
+//     $bulan = $_POST['bulan'];
+//     $name_task = mysqli_real_escape_string($con, $_POST['name_task']);
 
-    $query = mysqli_query($con, "INSERT INTO $table (name_task, status_task, tahun, bulan , date_task)  VALUES ('$name_task', 'Pending', YEAR(now()), month(now()) , now())");
-    header("Location: index.php");
-}
+//     $query = mysqli_query($con, "INSERT INTO $table (name_task, status_task, tahun, bulan , date_task)  VALUES ('$name_task', 'Pending', YEAR(now()), month(now()) , now())");
+//     header("Location: index.php");
+// }
 if (isset($_GET['edit'])) {
 
     $id_task = $_GET['edit'];

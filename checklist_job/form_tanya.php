@@ -13,7 +13,10 @@ if (isset($_POST["add_post"])) {
     $tahun = $_POST['tahun'];
     $bulan = $_POST['bulan'];
     $name_task = mysqli_real_escape_string($con, $_POST['name_task']);
-
+    $nametask = mysqli_query($con, "SELECT name_task FROM $table");
+    if ($nametask == $name_task) {
+        $error = true;
+    }
     $query = mysqli_query($con, "INSERT INTO $table (name_task, status_task, tahun, bulan , date_task)  VALUES ('$name_task', 'Pending', YEAR(now()), month(now()) , now())");
     header("Location: index.php");
 }
@@ -99,6 +102,12 @@ if (isset($_POST["add_post"])) {
             <div class="col-sm-6">
                 <div class="card bg-dark shadow-lg border-0 text-center text-light">
                     <div class="card-body">
+                        <?php if (isset($error)) : ?>
+                            <div class="alert alert-warning alert-dismissible fade show text-danger" role="alert">
+                                <strong>Daftar Pekerjaan Sudah Ada</strong><br>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php endif; ?>
                         <h3>FORM TAMBAH PEKERJAAN</h3>
                         <form action="" method="POST">
                             <div class="form-group mb-1">

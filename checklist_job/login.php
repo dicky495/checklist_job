@@ -19,9 +19,9 @@ if (isset($_POST["login"])) {
     $_SESSION['jabatan'] = strtoupper($jabatan);
 
 
-    $result = mysqli_query($con, "SELECT * FROM user WHERE username = '$username'");
+    $result = mysqli_query($con, "SELECT * FROM user WHERE username = '$username' AND bagian = '$bagian' AND sub_bagian = '$sub_bagian' AND jabatan = '$jabatan'");
 
-    // cek email
+    // cek username
     if (mysqli_num_rows($result) === 1) {
         // cek password
         $row = mysqli_fetch_assoc($result);
@@ -61,7 +61,7 @@ if (isset($_POST["login"])) {
                     <!-- alert untuk error -->
                     <?php if (isset($error)) : ?>
                         <div class="alert alert-warning alert-dismissible fade show text-danger" role="alert">
-                            <strong>Login Gagal</strong> Nama atau Password salah
+                            <strong>Login Gagal</strong><br> Harus di isi sesuai dengan di registrasi
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     <?php endif; ?>

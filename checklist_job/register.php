@@ -56,7 +56,7 @@ if (isset($_POST["register"])) {
                     <!-- alert untuk error -->
                     <?php if (isset($error)) : ?>
                         <div class="alert alert-warning alert-dismissible fade show text-danger" role="alert">
-                            <strong>Email sudah terdaftar</strong> Silakan <a href="login.php"><button class="badge btn-primary">Login</button></a>
+                            <strong>Nama sudah terdaftar</strong><br> Silakan Registrasi Ulang
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     <?php endif; ?>
