@@ -8,7 +8,7 @@ if (!isset($_SESSION["login"])) {
 
 require "function.php";
 
-$table = substr($_SESSION['username'], 0, 5);
+$table = trim(substr($_SESSION['username'], 0, 6));
 if (isset($_POST["add_post"])) {
     $tahun = $_POST['tahun'];
     $bulan = $_POST['bulan'];

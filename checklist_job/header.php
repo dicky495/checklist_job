@@ -25,7 +25,7 @@ date_default_timezone_set("Asia/Jakarta");
                 <h4><b>CHECK LIST PEKERJAAN</b></h4>
             </div>
             <div class="col sm-2 text-end mt-1">
-                <button class="btn btn-outline-dark"><?php echo date('d F Y | h : i'); ?> WIB</button>
+                <button class="btn btn-outline-dark"><?php echo date('d F Y | H : i'); ?> WIB</button>
             </div>
         </div>
     </div>

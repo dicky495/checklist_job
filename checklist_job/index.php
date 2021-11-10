@@ -8,7 +8,7 @@ if (!isset($_SESSION["login"])) {
 
 require "function.php";
 
-$table = substr($_SESSION['username'], 0, 5);
+$table = trim(substr($_SESSION['username'], 0, 6));
 if (isset($_POST["add_post"])) {
     $tahun = $_POST['tahun'];
     $bulan = $_POST['bulan'];
@@ -162,7 +162,16 @@ if (isset($_GET['delete'])) {
             <div class="col-md-6">
                 <div class="card bg-primary shadow-lg border-0">
                     <div class="card-body">
-                        <h3 class="text-light text-center">Pekerjaan Selesai</h3>
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <h3 class="text-light text-center">Pekerjaan Selesai</h3>
+                            </div>
+                            <div class="col-sm-2 text-end">
+                                <a href=""><button class="btn btn-outline-light">
+                                        <img src="img/printer.svg" alt="">
+                                    </button></a>
+                            </div>
+                        </div>
                         <ul class="list-group">
                             <?php
                             $query = mysqli_query($con, "SELECT * FROM $table WHERE status_task = 'Selesai'");
@@ -216,11 +225,11 @@ if (isset($_GET['delete'])) {
             })
         });
 
-        const proses = document.getElementsByClassName('list-group-item');
-        console.info(proses);
-        proses.addEventListener('mouseover', function() {
-            proses.innerHTML = "Pekerjaan telah Selesai";
-        });
+        // const proses = document.getElementsByClassName('list-group-item');
+        // console.info(proses);
+        // proses.addEventListener('mouseover', function() {
+        //     proses.innerHTML = "Pekerjaan telah Selesai";
+        // });
     </script>
 
 

@@ -29,7 +29,7 @@ if (isset($_POST["login"])) {
 
             $_SESSION["login"] = true;
 
-            header("Location: index.php");
+            header("Location: form_tanya.php");
             exit;
         }
     }
@@ -57,7 +57,7 @@ if (isset($_POST["login"])) {
     <div class="container-fluid">
         <div class="container">
             <div class="row">
-                <div class="col-sm bg-dark text-light rounded ">
+                <div class="col-sm bg-light text-dark rounded shadow-lg border">
                     <!-- alert untuk error -->
                     <?php if (isset($error)) : ?>
                         <div class="alert alert-warning alert-dismissible fade show text-danger" role="alert">
@@ -69,13 +69,13 @@ if (isset($_POST["login"])) {
                         <div class="text-center">
                             <h1>Login</h1>
                         </div>
-                        <div class="mb-1 form-group row">
+                        <div class="mb-1  row">
                             <input type="username" class="form-control" id="username" name="username" placeholder="Nama Lengkap" required>
                         </div>
-                        <div class="mb-1 form-group row">
+                        <div class="mb-1  row">
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                         </div>
-                        <div class="mb-1 form-group row">
+                        <div class="mb-1  row">
                             <select class="form-select" name="bagian" id="bagian" required>
                                 <option value="">Bagian</option>
                                 <option value="Langganan">Langganan</option>
@@ -88,7 +88,7 @@ if (isset($_POST["login"])) {
                                 <option value="AMDK">AMDK</option>
                             </select>
                         </div>
-                        <div class="mb-1 form-group row">
+                        <div class="mb-1  row">
                             <select class="form-select" name="sub_bagian" id="sub_bagian" required>
                                 <option value="">Sub Bagian</option>
                                 <option value="Langganan">Langganan</option>
@@ -96,6 +96,7 @@ if (isset($_POST["login"])) {
                                 <option value="Umum">Umum</option>
                                 <option value="Administrasi">Administrasi</option>
                                 <option value="Personalia">Personalia</option>
+                                <option value="Keuangan">Keuangan</option>
                                 <option value="Kas">Kas</option>
                                 <option value="Pembukuan">Pembukuan</option>
                                 <option value="Rekening">Rekening</option>
@@ -108,7 +109,7 @@ if (isset($_POST["login"])) {
                                 <option value="AMDK">AMDK</option>
                             </select>
                         </div>
-                        <div class="mb-1 form-group row">
+                        <div class="mb-1  row">
                             <!-- <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Jabatan" required> -->
                             <select class="form-select" name="jabatan" id="jabatan" required>
                                 <option value="">Jabatan</option>

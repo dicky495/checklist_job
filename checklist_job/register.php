@@ -87,17 +87,18 @@ if (isset($_POST["register"])) {
                             <select class="form-select" name="sub_bagian" id="sub_bagian" required>
                                 <option value="">Sub Bagian</option>
                                 <option value="Langganan">Langganan</option>
-                                <option value="Langganan">Penagihan</option>
+                                <option value="Penagihan">Penagihan</option>
                                 <option value="Umum">Umum</option>
-                                <option value="Umum">Administrasi</option>
-                                <option value="Umum">Personalia</option>
-                                <option value="Keuangan">Kas</option>
-                                <option value="Keuangan">Pembukuan</option>
-                                <option value="Keuangan">Rekening</option>
+                                <option value="Administrasi">Administrasi</option>
+                                <option value="Personalia">Personalia</option>
+                                <option value="Keuangan">Keuangan</option>
+                                <option value="Kas">Kas</option>
+                                <option value="Pembukuan">Pembukuan</option>
+                                <option value="Rekening">Rekening</option>
                                 <option value="Pemeliharaan">Pemeliharaan</option>
-                                <option value="Pemeliharaan">Peralatan</option>
+                                <option value="Peralatan">Peralatan</option>
                                 <option value="Perencanaan">Perencanaan</option>
-                                <option value="Perencanaan">Pengawasan</option>
+                                <option value="Pengawasan">Pengawasan</option>
                                 <option value="SPI">SPI</option>
                                 <option value="IT">IT</option>
                                 <option value="AMDK">AMDK</option>
