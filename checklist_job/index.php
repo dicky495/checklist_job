@@ -9,14 +9,12 @@ if (!isset($_SESSION["login"])) {
 require "function.php";
 
 $table = trim(substr($_SESSION['username'], 0, 6));
-// if (isset($_POST["add_post"])) {
-//     $tahun = $_POST['tahun'];
-//     $bulan = $_POST['bulan'];
-//     $name_task = mysqli_real_escape_string($con, $_POST['name_task']);
-
-//     $query = mysqli_query($con, "INSERT INTO $table (name_task, status_task, tahun, bulan , date_task)  VALUES ('$name_task', 'Pending', YEAR(now()), month(now()) , now())");
-//     header("Location: index.php");
-// }
+if (isset($_POST["add_post"])) {
+    $tahun = $_POST['tahun'];
+    $bulan = $_POST['bulan'];
+    $query = mysqli_query($con, "SELECT * FROM $table WHERE $bulan = bulan AND $tahun = tahun ");
+    header("Location: cetak.php");
+}
 if (isset($_GET['edit'])) {
 
     $id_task = $_GET['edit'];
@@ -29,9 +27,6 @@ if (isset($_GET['delete'])) {
     $query = mysqli_query($con, "DELETE FROM $table WHERE id_task = '$id_task'");
     header("Location: index.php");
 }
-
-
-
 
 
 ?>
@@ -123,6 +118,7 @@ if (isset($_GET['delete'])) {
             </div>
         </div>
         <br> -->
+
         <div class="row g-1">
             <div class="col-md-6">
                 <!-- pending todolist -->
@@ -139,14 +135,18 @@ if (isset($_GET['delete'])) {
                                 <li class="list-group-item">
                                     <?php echo $name_task; ?>
                                     <div style="float: right;">
-                                        <a href="index.php?delete=<?php echo $id_task ?>">
-                                            <span class="badge bg-danger" id="proses">Hapus</span>
-                                        </a>
-                                    </div>
-                                    <div style="float: right;">
                                         <a href="index.php?edit=<?php echo $id_task ?>">
-                                            <span class="coba badge bg-danger" id="proses">Proses</span>
+                                            <span class="badge bg-danger">Proses</span>
+                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
+                                                <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z" />
+                                                <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z" />
+                                            </svg> -->
                                         </a>
+                                        <!-- <a href="index.php?delete=<?php echo $id_task ?>" class="btn btn-danger">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                                            </svg>
+                                        </a> -->
                                     </div>
                                 </li>
                             <?php } ?>
@@ -162,9 +162,10 @@ if (isset($_GET['delete'])) {
                             <div class="col-sm-10">
                                 <h3 class="text-light text-center">Pekerjaan Selesai</h3>
                             </div>
+
                             <div class="col-sm-2 text-end">
-                                <a href=""><button class="btn btn-outline-light">
-                                        <img src="img/printer.svg" alt="">
+                                <a href="cetak.php"><button class="btn btn-outline-light">
+                                        <img src="img/printer.svg" alt="Modul Cetak">
                                     </button></a>
                             </div>
                         </div>
@@ -221,10 +222,10 @@ if (isset($_GET['delete'])) {
             })
         });
 
-        const proses = document.querySelectorAll('.coba');
+        const proses = document.querySelectorAll('a .bg-danger');
         for (let i = 0; i < proses.length; i++) {
             proses[i].addEventListener('mouseover', function() {
-                proses[i].innerHTML = "Pekerjaan telah selesai";
+                proses[i].innerHTML = "Pekerjaan telah Selesai";
             });
             proses[i].addEventListener('mouseleave', function() {
                 proses[i].innerHTML = "Proses";
