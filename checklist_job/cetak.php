@@ -25,15 +25,17 @@ require "function.php";
     <header>
         <?php include "header.php" ?>
     </header>
-    <div class="row justify-content-center">
-        <div class="col-sm-4 text-center">
-            <a href="index.php"><button class="btn btn-outline-success"><img src="img/backspace.svg" alt=""></button></a>
-        </div>
-        <div class="col-sm-4 text-center">
-            <h3><button class="btn btn-outline-success" id="belum"><img src="img/calendar3.svg" alt=""></button></h3>
-        </div>
-        <div class="col-sm-4 text-center">
-            <a href="#"><button class="btn btn-outline-success"><img src="img/printer.svg" alt=""></button></a>
+    <div class="container-fluid bg-info">
+        <div class="row justify-content-center">
+            <div class="col-sm-4 text-center mt-1" id="tombol_back">
+                <a href="index.php"><button class="btn btn-outline-danger"><img src="img/backspace.svg" alt=""> Kembali</button></a>
+            </div>
+            <div class="col-sm-4 text-center" id="tombol_tanggal">
+                <h3><button class="btn btn-outline-danger" id="belum"><img src="img/calendar3.svg" alt=""> Pilih Bulan</button></h3>
+            </div>
+            <div class="col-sm-4 text-center mt-1" id="tombol_cetak">
+                <a href="cetak_file.php" target="_blank"><button class="btn btn-outline-danger"><img src="img/printer.svg" alt=""> Cetak File</button></a>
+            </div>
         </div>
     </div>
     <div class="container-fluid" id="tanya" style="display: none;">
@@ -98,6 +100,8 @@ require "function.php";
                 if (isset($_POST["add_post"])) {
                     $tahun = $_POST['tahun'];
                     $bulan = $_POST['bulan'];
+                    $tahun = $_SESSION['tahun'];
+                    $bulan = $_SESSION['bulan'];
                     $query = mysqli_query($con, "SELECT * FROM $table WHERE status_task = 'Selesai' AND bulan = '$bulan' AND tahun = '$tahun'");
 
 
@@ -105,7 +109,7 @@ require "function.php";
                     <?php while ($row = mysqli_fetch_assoc($query)) : ?>
                         <?php
                         $tgls = strtotime($row['date_task']);
-                        $tanggal = date('d M Y', $tgls);
+                        $tanggal = date('d F Y', $tgls);
                         ?>
                         <tr>
                             <th scope="row" class="text-center"><?php echo $no++ ?></th>
@@ -125,6 +129,8 @@ require "function.php";
         const tombol_belum = document.getElementById('belum');
         const tombol_pilih = document.getElementById('tombol_pilih');
         const tabel = document.getElementById('tabel');
+        const tombol_back = document.getElementById('tombol_back');
+        const row_atas = document.getElementById('row_atas');
 
         tombol_belum.addEventListener('click', function() {
             if (tanya.style.display == "none") {

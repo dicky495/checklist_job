@@ -124,7 +124,7 @@ if (isset($_GET['delete'])) {
                 <!-- pending todolist -->
                 <div class="card bg-danger shadow-lg border-0 text-center">
                     <div class="card-body">
-                        <h3 class="text-light">List Pending Pekerjaan</h3>
+                        <h3 class="text-light">Daftar Tunggu Pekerjaan</h3>
                         <ul class="list-group text-start">
                             <?php
                             $query = mysqli_query($con, "SELECT * FROM $table WHERE status_task = 'Pending'");
@@ -162,7 +162,6 @@ if (isset($_GET['delete'])) {
                             <div class="col-sm-10">
                                 <h3 class="text-light text-center">Pekerjaan Selesai</h3>
                             </div>
-
                             <div class="col-sm-2 text-end">
                                 <a href="cetak.php"><button class="btn btn-outline-light">
                                         <img src="img/printer.svg" alt="Modul Cetak">

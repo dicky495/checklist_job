@@ -103,7 +103,7 @@ if (isset($_POST["add_post"])) {
                 <!-- <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Belum
                 </button> -->
-                <h3><button class="btn btn-danger" id="belum">Belum</button></h3>
+                <h3><button class="btn btn-danger" id="belum">Tambah daftar Pekerjaan</button></h3>
             </div>
             <div class="col-sm-3">
                 <h3></h3>
